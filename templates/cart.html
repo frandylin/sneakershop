@@ -8,21 +8,21 @@
     <title>Frank Sneaker Shop</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 
 <body>
 
     <section id="header">
-        <a href="frandy.html"><img src="img/logo.jpeg" width="80" height="80" class="logo" alt="無法顯示"></a>
+        <a href="home.html"><img src="img/logo.jpeg" width="80" height="80" class="logo" alt="無法顯示"></a>
 
         <div>
             <ul id="navbar">
-                <li><a href="frandy.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a class="active" href="cart.html"><i class="fal fa-shopping-bag"></i></a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li id="lg-bag"><a class="active" href="{{ url_for('cart') }}"><i class="fal fa-shopping-bag"></i></a></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -147,7 +147,7 @@
     </footer>
 
 
-    <script src="script.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 
 </html>

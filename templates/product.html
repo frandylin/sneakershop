@@ -8,21 +8,22 @@
     <title>Frank Sneaker Shop</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
 </head>
 
 <body>
 
     <section id="header">
-        <a href="frandy.html"><img src="img/logo.jpeg" width="80" height="80" class="logo" alt="無法顯示"></a>
+        <a href="home.html"><img src="img/logo.jpeg" width="80" height="80" class="logo" alt="無法顯示"></a>
 
         <div>
             <ul id="navbar">
-                <li><a href="frandy.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="lg-bag"><a href="cart.html"><i class="fal fa-shopping-bag"></i></a></li>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('shop') }}">Shop</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li id="lg-bag"><a href="{{ url_for('cart') }}"><i class="fal fa-shopping-bag"></i></a></li>
+                <li id="account_bt"><i class="fas fa-user"></i></li>
                 <a href="#" id="close"><i class="far fa-times"></i></a>
             </ul>
         </div>
@@ -31,6 +32,52 @@
             <a href="cart.html"><i class="fal fa-shopping-bag"></i></a>
         </div>
     </section>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="email">Email:</label>
+                <input type="text" id="username" name="email"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <p id="error-message" style="color: red; font-size: 14px; display: none;"></p>
+                <input type="submit" value="Login" class="btn">
+                <button type="button" id="register_bt" class="btn">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email"><br><br>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <p id="register_error_message" style="color: red; font-size: 14px; display: none;"></p>
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+    </div>
+
+    <div id="loggedInModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>You are now logged in.</p>
+            <button type="button" id="viewProfileButton" class="btn">
+                <a href="{{ url_for('profile') }}" style="text-decoration: none; color: inherit;">View Profile</a>
+            </button>
+            <button type="button" id="logoutButton" class="btn">Logout</button>
+        </div>
+    </div>
 
     <section id="prodetails" class="section-p1">
         <div class="single-pro-image">
@@ -231,7 +278,7 @@
     </script>
 
 
-    <script src="script.js"></script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
 </body>
 
 </html>
