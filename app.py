@@ -153,4 +153,4 @@ def profile():
         return redirect(url_for('home')), 404
     return render_template("profile.html", name = user_profile["name"], email = user_profile["email"], phone = user_profile["phone"], password = user_profile["password"], create_time = user_profile["registered_at"])
 
-app.run(port=2000)
+# app.run(port=2000)
